@@ -1,0 +1,23 @@
+@import '../../styles/colors.scss';
+
+.squareButton {
+  background: $gray-color-400;
+
+  height: 22vh;
+  border-radius: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: filter 0.2s;
+
+  &:not(:disabled):hover {
+    filter: brightness(1.2);
+  }
+
+  .symbol {
+    font-size: 2rem;
+  }
+}

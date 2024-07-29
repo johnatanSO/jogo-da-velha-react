@@ -1,0 +1,11 @@
+@import '../../styles/colors.scss';
+
+.boardContainer {
+  display: grid;
+  grid-template-columns: 22vh 22vh 22vh;
+  gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
+}
+
