@@ -35,7 +35,9 @@ export function Square({
       disabled={marked}
     >
       {marked && (
-        <FontAwesomeIcon className={style.symbol} icon={getIconPlayer()} />
+        <FontAwesomeIcon style={{
+          color: symbol === 'x' ? '#31a2ff' : '#f94449'
+        }} className={style.symbol} icon={getIconPlayer()} />
       )}
     </button>
   )

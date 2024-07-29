@@ -5,20 +5,20 @@ import { v4 as uuidv4 } from 'uuid'
 import { Position } from './interfaces/Position'
 
 function generatePositions() {
-  return Array(9).map(() => {
+  return new Array(9).fill(null).map(() => {
     return {
-      id: uuidv4(),
+      id: uuidv4(), 
       symbol: null,
       userSelectedId: null,
       marked: false
     }
   })
-}
+} 
 
 export function Board() {
   const [positions, setPositions] = useState<Position[]>(generatePositions())
   const [currentPlayerSymbol, setCurrentPlayerSymbol] = useState<'x' | 'o' | null>('x')
-  
+
   function handleSelectPosition(positionId: string) {
     const copyPositions = [...positions]
 
