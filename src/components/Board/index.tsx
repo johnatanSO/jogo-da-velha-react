@@ -4,6 +4,17 @@ import style from './Board.module.scss'
 import { v4 as uuidv4 } from 'uuid'
 import { Position } from './interfaces/Position'
 
+let winStates = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
 function generatePositions() {
   return new Array(9).fill(null).map(() => {
     return {
@@ -31,6 +42,7 @@ export function Board() {
 
     definePlayerTurn()
     setPositions(copyPositions)
+    verifyGameOver()
   }
 
   function definePlayerTurn() {
@@ -41,6 +53,24 @@ export function Board() {
 
     setCurrentPlayerSymbol('x')
   }
+
+  function verifyGameOver() {
+    for (const sequence of winStates) {
+      const firstPosition = sequence[0];
+      const secondPosition = sequence[1];
+      const thirdPosition = sequence[2];
+
+      if (
+        positions[firstPosition].symbol === positions[secondPosition].symbol && 
+        positions[firstPosition].symbol === positions[thirdPosition].symbol && 
+        positions[firstPosition].symbol !== null) {
+          const winner = positions[firstPosition]
+          console.log('Ganhou')
+          console.log('VENCEDOR', winner.symbol)
+      }
+    }
+  }
+
 
   return (
     <section className={style.boardContainer}>
