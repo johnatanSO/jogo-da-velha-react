@@ -3,5 +3,28 @@
 .overlay {
   .modalContainer {
 
+    header {
+
+    }
+
+    main {
+
+    }
+
+    footer {
+      .newGameButton {
+        background: $red-color-100;
+        color: $white-color;
+        border: none;
+
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
   }
 }

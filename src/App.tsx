@@ -2,7 +2,7 @@ import './styles/globals.scss';
 import { Header } from './components/Header';
 import { Board } from './components/Board';
 
-function App() {
+export function App() {
   return (
     <div className="appContainer">
       <Header />
@@ -11,5 +11,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

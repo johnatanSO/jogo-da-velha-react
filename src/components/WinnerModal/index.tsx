@@ -1,6 +1,7 @@
-import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "@mui/material";
+import { faRepeat } from "@fortawesome/free-solid-svg-icons";
+
 import style from './WinnerModal.module.scss'
 
 type Props = {
@@ -13,10 +14,7 @@ export function WinnerModal({open, handleClose}: Props) {
     <Modal className={style.overlay} open={open} onClose={handleClose}>
       <section className={style.modalContainer}>
         <header>
-          <h2>Título</h2>
-          <button type="button">
-            <FontAwesomeIcon icon={faXmarkCircle} />
-          </button>
+          <h2>Fim de jogo</h2>
         </header>
 
         <main>
@@ -24,7 +22,10 @@ export function WinnerModal({open, handleClose}: Props) {
         </main>
 
         <footer>
-
+          <button type="button" className={style.newGameButton}>
+            <FontAwesomeIcon className={style.icon} icon={faRepeat} />
+            Jogar novamente
+          </button>
         </footer>
       </section>
     </Modal>

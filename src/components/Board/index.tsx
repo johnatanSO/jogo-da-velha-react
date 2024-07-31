@@ -1,10 +1,12 @@
+import { v4 as uuidv4 } from 'uuid'
+
 import { useState } from 'react'
 import { Square } from '../Square'
 import style from './Board.module.scss'
-import { v4 as uuidv4 } from 'uuid'
+import { WinnerModal } from '../WinnerModal'
 import { Position } from './interfaces/Position'
 import { IPlayerData } from './interfaces/IPlayerData'
-import { WinnerModal } from '../WinnerModal'
+
 
 let winStates = [
   [0, 1, 2],
@@ -72,7 +74,8 @@ export function Board() {
       if (
         positions[firstPosition].symbol === positions[secondPosition].symbol && 
         positions[firstPosition].symbol === positions[thirdPosition].symbol && 
-        positions[firstPosition].symbol !== null) {
+        positions[firstPosition].symbol !== null
+      ) {
           const winner = positions[firstPosition]
 
           setWinnerData(winner)
