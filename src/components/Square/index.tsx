@@ -9,6 +9,7 @@ type Props = {
   userSelectedId: null | string
   id: string
   handleSelectPosition: (id: string) => void
+  gameOver: boolean
 }
 
 export function Square({ 
@@ -16,11 +17,13 @@ export function Square({
   symbol, 
   userSelectedId, 
   id, 
-  handleSelectPosition 
+  handleSelectPosition,
+  gameOver,
 }: Props) {
 
   function handleClickSquare() {
     if (marked) return
+
     handleSelectPosition(id)
   }
 
@@ -32,7 +35,7 @@ export function Square({
     <button 
       onClick={handleClickSquare} 
       className={style.squareButton} 
-      disabled={marked}
+      disabled={marked || gameOver}
     >
       {marked && (
         <FontAwesomeIcon style={{

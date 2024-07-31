@@ -3,6 +3,8 @@ import { Square } from '../Square'
 import style from './Board.module.scss'
 import { v4 as uuidv4 } from 'uuid'
 import { Position } from './interfaces/Position'
+import { IPlayerData } from './interfaces/IPlayerData'
+import { WinnerModal } from '../WinnerModal'
 
 let winStates = [
   [0, 1, 2],
@@ -29,8 +31,13 @@ function generatePositions() {
 export function Board() {
   const [positions, setPositions] = useState<Position[]>(generatePositions())
   const [currentPlayerSymbol, setCurrentPlayerSymbol] = useState<'x' | 'o' | null>('x')
+  const [gameOver, setGameOver] = useState<boolean>(false)
+  const [winnerData, setWinnerData] = useState<IPlayerData | null>(null)
+  const [modalWinnerOpened, setModalWinnerOpened] = useState<boolean>(false)
 
   function handleSelectPosition(positionId: string) {
+    if (gameOver) return
+
     const copyPositions = [...positions]
 
     copyPositions.forEach((position) => {
@@ -40,8 +47,10 @@ export function Board() {
       }
     })
 
-    definePlayerTurn()
     setPositions(copyPositions)
+
+    definePlayerTurn()
+
     verifyGameOver()
   }
 
@@ -65,8 +74,12 @@ export function Board() {
         positions[firstPosition].symbol === positions[thirdPosition].symbol && 
         positions[firstPosition].symbol !== null) {
           const winner = positions[firstPosition]
-          console.log('Ganhou')
-          console.log('VENCEDOR', winner.symbol)
+
+          setWinnerData(winner)
+          setModalWinnerOpened(true)
+          setGameOver(true)
+
+          break
       }
     }
   }
@@ -83,9 +96,20 @@ export function Board() {
             userSelectedId={position.userSelectedId}
             handleSelectPosition={handleSelectPosition}
             id={position.id}
+            gameOver={gameOver}
           />
         )
       })}
+
+      {modalWinnerOpened && winnerData && (
+        <WinnerModal 
+          open={modalWinnerOpened} 
+          handleClose={() => {
+            setModalWinnerOpened(false)
+            setWinnerData(null)
+          }} 
+        />
+      )}
     </section>
   )
 }
