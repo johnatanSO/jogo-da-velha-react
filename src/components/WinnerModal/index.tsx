@@ -33,19 +33,20 @@ export function WinnerModal({
         <main>
           <div className={style.winnerContainer}>
             {!draw ? (
-              <FontAwesomeIcon
-                icon={getIconPlayer()}
-                style={{
-                  color: winnerData.symbol === 'x' ? '#31a2ff' : '#f94449',
-                }}
-                className={style.iconWinner}
-              />
+              <>
+                <FontAwesomeIcon
+                  icon={getIconPlayer()}
+                  style={{
+                    color: winnerData.symbol === 'x' ? '#31a2ff' : '#f94449',
+                  }}
+                  className={style.iconWinner}
+                />
+                <b>Vencedor</b>
+              </>
             ) : (
               <p>Empate. Nenhum jogador venceu</p>
             )}
           </div>
-
-          <b>Vencedor</b>
         </main>
 
         <footer>
