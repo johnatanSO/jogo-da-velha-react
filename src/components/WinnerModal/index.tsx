@@ -1,15 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal } from "@mui/material";
-import { faRepeat } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Modal } from '@mui/material'
+import { faRepeat } from '@fortawesome/free-solid-svg-icons'
 
 import style from './WinnerModal.module.scss'
 
 type Props = {
   open: boolean
   handleClose: () => void
+  handleResetGame: () => void
 }
 
-export function WinnerModal({open, handleClose}: Props) {
+export function WinnerModal({ open, handleClose, handleResetGame }: Props) {
   return (
     <Modal className={style.overlay} open={open} onClose={handleClose}>
       <section className={style.modalContainer}>
@@ -17,12 +18,14 @@ export function WinnerModal({open, handleClose}: Props) {
           <h2>Fim de jogo</h2>
         </header>
 
-        <main>
-
-        </main>
+        <main></main>
 
         <footer>
-          <button type="button" className={style.newGameButton}>
+          <button
+            type="button"
+            className={style.newGameButton}
+            onClick={handleResetGame}
+          >
             <FontAwesomeIcon className={style.icon} icon={faRepeat} />
             Jogar novamente
           </button>

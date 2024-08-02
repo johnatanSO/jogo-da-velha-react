@@ -51,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "eslint": "^9.8.0",
     "sass": "^1.77.8"
   }
 }

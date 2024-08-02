@@ -1,6 +1,6 @@
 export interface Position {
   id: string
-  symbol: null | string
+  symbol: 'x' | 'o' | null
   userSelectedId: null | string
   marked: boolean
 }

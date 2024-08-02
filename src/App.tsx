@@ -1,6 +1,6 @@
-import './styles/globals.scss';
-import { Header } from './components/Header';
-import { Board } from './components/Board';
+import './styles/globals.scss'
+import { Header } from './components/Header'
+import { Board } from './components/Board'
 
 export function App() {
   return (
@@ -9,5 +9,5 @@ export function App() {
 
       <Board />
     </div>
-  );
+  )
 }
