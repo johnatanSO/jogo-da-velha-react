@@ -119,10 +119,6 @@ export function Board() {
       {modalWinnerOpened && winnerData && (
         <WinnerModal
           open={modalWinnerOpened}
-          handleClose={() => {
-            setModalWinnerOpened(false)
-            setWinnerData(null)
-          }}
           handleResetGame={handleResetGame}
           winnerData={winnerData}
         />
