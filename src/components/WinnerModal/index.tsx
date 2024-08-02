@@ -10,9 +10,15 @@ type Props = {
   open: boolean
   handleResetGame: () => void
   winnerData: IWinnerData
+  draw: boolean
 }
 
-export function WinnerModal({ open, handleResetGame, winnerData }: Props) {
+export function WinnerModal({
+  open,
+  handleResetGame,
+  winnerData,
+  draw,
+}: Props) {
   function getIconPlayer() {
     return winnerData.symbol === 'x' ? faXmark : faCircle
   }
@@ -26,16 +32,20 @@ export function WinnerModal({ open, handleResetGame, winnerData }: Props) {
 
         <main>
           <div className={style.winnerContainer}>
-            <FontAwesomeIcon
-              icon={getIconPlayer()}
-              style={{
-                color: winnerData.symbol === 'x' ? '#31a2ff' : '#f94449',
-              }}
-              className={style.iconWinner}
-            />
+            {!draw ? (
+              <FontAwesomeIcon
+                icon={getIconPlayer()}
+                style={{
+                  color: winnerData.symbol === 'x' ? '#31a2ff' : '#f94449',
+                }}
+                className={style.iconWinner}
+              />
+            ) : (
+              <p>Empate. Nenhum jogador venceu</p>
+            )}
           </div>
 
-          <h3>Vencedor</h3>
+          <b>Vencedor</b>
         </main>
 
         <footer>
