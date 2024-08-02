@@ -97,6 +97,7 @@ export function Board() {
     setPositions(newPositions)
     setWinnerData(null)
     setModalWinnerOpened(false)
+    setGameOver(false)
   }
 
   return (
@@ -123,6 +124,7 @@ export function Board() {
             setWinnerData(null)
           }}
           handleResetGame={handleResetGame}
+          winnerData={winnerData}
         />
       )}
     </section>

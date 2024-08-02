@@ -3,11 +3,13 @@ import { Modal } from '@mui/material'
 import { faRepeat } from '@fortawesome/free-solid-svg-icons'
 
 import style from './WinnerModal.module.scss'
+import { IWinnerData } from './interfaces/IWinnerData'
 
 type Props = {
   open: boolean
   handleClose: () => void
   handleResetGame: () => void
+  winnerData: IWinnerData
 }
 
 export function WinnerModal({ open, handleClose, handleResetGame }: Props) {

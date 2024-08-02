@@ -1,11 +1,19 @@
 @import "../../styles/colors.scss";
 
 .overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .modalContainer {
 
     animation: fadeIn 0.2s ease-in-out;
+    background: $gray-color-400;
+    color: $gray-color-100;
+    border-radius: 20px;
     
     header {
+      text-align: center;
     }
 
     main {
@@ -21,9 +29,15 @@
         font-weight: 600;
         line-height: 1;
 
+        border-radius: 20px;
+
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        .icon {
+          height: 1rem;
+        }
       }
     }
   }
